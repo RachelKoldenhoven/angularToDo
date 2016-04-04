@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app='myApp'>
+<html lang="en" ng-app='ToDo'>
 <head>
     <meta charset="UTF-8">
     <title>Angular To Do</title>
@@ -8,7 +8,7 @@
     <link href="./css/normalize.css" rel="stylesheet" media="screen">
     <link href="./css/skeleton.css" rel="stylesheet" media="screen">
 </head>
-<body>
+<body ng-controller="ToDoController" class="ng-cloak">
 <header>
     <h1>Angular To Do</h1>
 </header>
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row buttons">
             <div class="one-third column">
-                <button>New</button>
+                <button ng-click="toggleViewNew()">New</button>
             </div>
             <div class="one-third column">
                 <button>To Do</button>
@@ -25,7 +25,34 @@
                 <button>Completed</button>
             </div>
         </div>
-        <div class="row">
+        <div class="row new" ng-show="viewNew === true">
+            <form name="newToDoItem">
+                <div class="one-half column">
+                    <label for="toDoItem">I need to:</label>
+                    <input class="u-full-width" type="text" placeholder="walk the dog..." id="toDoItem">
+                    <input class="button-primary" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+        <div class="row toDo" ng-show="">
+            <form name="itemsToDo">
+                <div class="one-half column">
+                    <label class="example-send-yourself-copy">
+                        <input type="checkbox">
+                        <span class="label-body">Complete!</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="row completed" ng-show="">
+            <form name="itemsCompleted">
+                <div class="one-half column">
+                    <label class="example-send-yourself-copy">
+                        <input type="checkbox">
+                        <span class="label-body">Complete!</span>
+                    </label>
+                </div>
+            </form>
         </div>
     </div>
 </main>
