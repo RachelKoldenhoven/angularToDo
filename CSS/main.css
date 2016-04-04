@@ -1,0 +1,21 @@
+header{
+    background-image: url("http://newflowerwallpaper.com/download/images-of-spring-flowers-and-wallpapers/images-of-spring-flowers-and-wallpapers-6.jpg");
+    background-size: cover;
+    height:80px;
+}
+
+header > h1 {
+    padding-left: 10%;
+}
+
+main {
+    /* Generated with http://gradient.quasi.ink */
+    height:1000px;
+    background-size: cover;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAADCAYAAABfwxXFAAAAUUlEQVQIWwXBSxJAMBBAwTeJb4iN+5/GRmytKOUcVExGt1xrMhFDPCCFUgpZlSb2yL0lazuPmpLzi3OOOjSM84RcaTHjowstMQ64ukLzw3ns/NOAIFLf7FzEAAAAAElFTkSuQmCC");
+}
+
+.buttons {
+    text-align: center;
+    padding: 5%;
+}
