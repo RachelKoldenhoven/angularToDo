@@ -67,7 +67,7 @@
                     <form name="itemsToDo" >
                         <div class="one-half column">
                             <label class="">
-                                <input type="checkbox">
+                                <input type="checkbox" ng-click="completeItem(item)">
                                 <span class="label-body">{{ item.description }}</span>
                             </label>
                         </div>
@@ -77,14 +77,18 @@
         </div>
                           <!--completed items-->
         <div class="row completed" ng-show="view.display === 'completed'">
-            <form name="itemsCompleted">
-                <div class="one-half column">
-                    <label class="example-send-yourself-copy">
-                        <input type="checkbox">
-                        <span class="label-body">Complete!</span>
-                    </label>
-                </div>
-            </form>
+            <ul class="completed">
+                <li ng-repeat="item in view.completedList">
+                    <form name="completedItems" >
+                        <div class="one-half column">
+                            <label class="">
+                                <input type="checkbox" ng-click="unDo(item)" checked>
+                                <span class="label-body strikethrough" >{{ item.description }}</span>
+                            </label>
+                        </div>
+                    </form>
+                </li>
+            </ul>
         </div>
     </div>
 </main>

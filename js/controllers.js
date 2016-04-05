@@ -27,6 +27,8 @@ app.controller('ToDoController', function($scope) {
 
   $scope.completeItem = function(item) {
      $scope.view.completedList.push(item);
+    $scope.toggleView('completed');
+
   };
 
   $scope.checkForError = function(field) {

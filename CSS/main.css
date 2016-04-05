@@ -25,6 +25,10 @@ main {
     padding: 5%;
 }
 
-.toDo {
+.toDo, .completed {
     list-style-type: none;
+}
+
+.strikethrough {
+    text-decoration: line-through;
 }
