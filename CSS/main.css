@@ -2,10 +2,11 @@
     display: none !important;
 }
 
+
 header{
     background-image: url("http://newflowerwallpaper.com/download/images-of-spring-flowers-and-wallpapers/images-of-spring-flowers-and-wallpapers-6.jpg");
     background-size: cover;
-    height:80px;
+    height:90px;
 }
 
 header > h1 {
@@ -15,7 +16,7 @@ header > h1 {
 
 main {
     /* Generated with http://gradient.quasi.ink */
-    height:1000px;
+    height:900px;
     background-size: cover;
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAADCAYAAABfwxXFAAAAUUlEQVQIWwXBSxJAMBBAwTeJb4iN+5/GRmytKOUcVExGt1xrMhFDPCCFUgpZlSb2yL0lazuPmpLzi3OOOjSM84RcaTHjowstMQ64ukLzw3ns/NOAIFLf7FzEAAAAAElFTkSuQmCC");
 }
@@ -27,6 +28,12 @@ main {
 
 .toDo, .completed {
     list-style-type: none;
+}
+
+.new, .toDoList, .completedList {
+    border: 2px solid #52527a;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .strikethrough {

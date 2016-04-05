@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Angular To Do</title>
     <!-- styles -->
-    <link href="./css/main.css" rel="stylesheet" media="screen">
     <link href="./css/normalize.css" rel="stylesheet" media="screen">
     <link href="./css/skeleton.css" rel="stylesheet" media="screen">
+    <link href="./css/main.css" rel="stylesheet" media="screen">
 </head>
 <body ng-controller="ToDoController" class="ng-cloak">
 <header>
@@ -29,7 +29,7 @@
                       <!--new item view-->
         <div class="row new" ng-show="view.display === 'new'">
             <form name="newToDoItem" novalidate>
-                <div class="one-half column">
+                <div class="eight columns offset-by-two">
                     <label for="toDoItem">I need to:</label>
                     <input class="u-full-width"
                            type="text"
@@ -61,11 +61,11 @@
             </form>
         </div>
                        <!--current to do list-->
-        <div class="row toDo" ng-show="view.display === 'list'">
+        <div class="row toDoList" ng-show="view.display === 'list'">
             <ul class="toDo">
                 <li ng-repeat="item in view.list">
                     <form name="itemsToDo" >
-                        <div class="one-half column">
+                        <div class="four columns offset-by-four">
                             <label class="">
                                 <input type="checkbox" ng-click="completeItem(item)">
                                 <span class="label-body">{{ item.description }}</span>
@@ -76,11 +76,11 @@
             </ul>
         </div>
                           <!--completed items-->
-        <div class="row completed" ng-show="view.display === 'completed'">
+        <div class="row completedList" ng-show="view.display === 'completed'">
             <ul class="completed">
                 <li ng-repeat="item in view.completedList">
                     <form name="completedItems" >
-                        <div class="one-half column">
+                        <div class="four columns offset-by-four">
                             <label class="">
                                 <input type="checkbox" ng-click="unDo(item)" checked>
                                 <span class="label-body strikethrough" >{{ item.description }}</span>
