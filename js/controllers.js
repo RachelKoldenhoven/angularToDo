@@ -3,19 +3,14 @@
  */
 app.controller('ToDoController', function($scope) {
   $scope.view = {};
-  $scope.view.viewNew = false;
-  $scope.view.viewList = false;
+  $scope.view.display = "";
   $scope.newItem = {};
 
 
-  $scope.toggleViewNew = function(){
-    $scope.view.viewNew = !$scope.view.viewNew;
+  $scope.toggleView = function(view){
+    $scope.view.display = view;
+    console.log(view);
   };
-
-  $scope.toggleViewList = function() {
-    $scope.view.viewList = !$scope.view.viewList;
-  };
-
 
   $scope.view.list = [
 
@@ -25,8 +20,7 @@ app.controller('ToDoController', function($scope) {
     item.date = new Date();
     item.completed = false;
     $scope.view.list.push(item);
-    $scope.toggleViewList();
-    $scope.toggleViewNew();
+    $scope.toggleView('list');
     $scope.newItem = {};
     $scope.newToDoItem.$setUntouched();
   };
