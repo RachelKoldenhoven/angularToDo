@@ -9,7 +9,6 @@ app.controller('ToDoController', function($scope) {
 
   $scope.toggleView = function(view){
     $scope.view.display = view;
-    console.log(view);
   };
 
   $scope.view.list = [];
@@ -26,9 +25,16 @@ app.controller('ToDoController', function($scope) {
   };
 
   $scope.completeItem = function(item) {
-     $scope.view.completedList.push(item);
+    $scope.view.completedList.push(item);
+    $scope.view.list.splice($scope.view.list.indexOf(item), 1);
     $scope.toggleView('completed');
 
+  };
+
+  $scope.unDo = function(item) {
+    $scope.view.list.push(item);
+    $scope.view.completedList.splice($scope.view.completedList.indexOf(item), 1);
+    $scope.toggleView('list');
   };
 
   $scope.checkForError = function(field) {
