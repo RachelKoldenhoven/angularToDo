@@ -35,24 +35,45 @@
                            type="text"
                            placeholder="walk the dog..."
                            id="toDoItem"
+                           name="description"
                            required
                            ng-minlength=5
                            ng-model="newItem.description"
                     >
-                    <input class="button-primary" type="submit" value="Submit" ng-click="addItem(newItem)">
+                    <div class="error"
+                         ng-show="newToDoItem.description.$dirty && newToDoItem.description.$invalid">
+                        <small class="error"
+                               ng-show="newToDoItem.description.$error.required">
+                            A description is required.
+                        </small>
+                        <small class="error"
+                               ng-show="newToDoItem.description.$error.minlength">
+                            The description is required to be at least 5 characters.
+                        </small>
+                    </div>
+                    <button class="button-primary"
+                            type="submit"
+                            value="Submit"
+                            ng-disabled="newToDoItem.$invalid"
+                            ng-click="addItem(newItem)"
+                    >Add Item</button>
                 </div>
             </form>
         </div>
                        <!--current to do list-->
         <div class="row toDo" ng-show="view.display === 'list'">
-            <form name="itemsToDo" ng-repeat="item in view.list">
-                <div class="one-half column">
-                    <label class="">
-                        <input type="checkbox">
-                        <span class="label-body">{{ item.description }}</span>
-                    </label>
-                </div>
-            </form>
+            <ul class="toDo">
+                <li ng-repeat="item in view.list">
+                    <form name="itemsToDo" >
+                        <div class="one-half column">
+                            <label class="">
+                                <input type="checkbox">
+                                <span class="label-body">{{ item.description }}</span>
+                            </label>
+                        </div>
+                    </form>
+                </li>
+            </ul>
         </div>
                           <!--completed items-->
         <div class="row completed" ng-show="view.display === 'completed'">

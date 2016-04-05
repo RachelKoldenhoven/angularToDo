@@ -12,9 +12,9 @@ app.controller('ToDoController', function($scope) {
     console.log(view);
   };
 
-  $scope.view.list = [
+  $scope.view.list = [];
 
-  ];
+  $scope.view.completedList = [];
 
   $scope.addItem = function(item){
     item.date = new Date();
@@ -24,5 +24,14 @@ app.controller('ToDoController', function($scope) {
     $scope.newItem = {};
     $scope.newToDoItem.$setUntouched();
   };
+
+  $scope.completeItem = function(item) {
+     $scope.view.completedList.push(item);
+  };
+
+  $scope.checkForError = function(field) {
+    return field.$invalid && field.$touched;
+  };
+
 
 });

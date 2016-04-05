@@ -24,3 +24,7 @@ main {
     text-align: center;
     padding: 5%;
 }
+
+.toDo {
+    list-style-type: none;
+}
