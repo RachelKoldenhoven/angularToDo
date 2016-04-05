@@ -14,36 +14,47 @@
 </header>
 <main>
     <div class="container">
+                    <!--buttons to choose view-->
         <div class="row buttons">
             <div class="one-third column">
                 <button ng-click="toggleViewNew()">New</button>
             </div>
             <div class="one-third column">
-                <button>To Do</button>
+                <button ng-click="toggleViewList()">To Do</button>
             </div>
             <div class="one-third column">
                 <button>Completed</button>
             </div>
         </div>
-        <div class="row new" ng-show="viewNew === true">
-            <form name="newToDoItem">
+                      <!--new item view-->
+        <div class="row new" ng-show="view.viewNew === true">
+            <form name="newToDoItem" novalidate>
                 <div class="one-half column">
                     <label for="toDoItem">I need to:</label>
-                    <input class="u-full-width" type="text" placeholder="walk the dog..." id="toDoItem">
-                    <input class="button-primary" type="submit" value="Submit">
+                    <input class="u-full-width"
+                           type="text"
+                           placeholder="walk the dog..."
+                           id="toDoItem"
+                           required
+                           ng-minlength=5
+                           ng-model="newItem.description"
+                    >
+                    <input class="button-primary" type="submit" value="Submit" ng-click="addItem(newItem)">
                 </div>
             </form>
         </div>
-        <div class="row toDo" ng-show="">
-            <form name="itemsToDo">
+                       <!--current to do list-->
+        <div class="row toDo" ng-show="view.viewList === true">
+            <form name="itemsToDo" ng-repeat="item in view.list">
                 <div class="one-half column">
-                    <label class="example-send-yourself-copy">
+                    <label class="">
                         <input type="checkbox">
-                        <span class="label-body">Complete!</span>
+                        <span class="label-body">{{ item.description }}</span>
                     </label>
                 </div>
             </form>
         </div>
+                          <!--completed items-->
         <div class="row completed" ng-show="">
             <form name="itemsCompleted">
                 <div class="one-half column">
